@@ -1,0 +1,61 @@
+!  50% 0xc0
+!  25% 0xa0
+!   0% 0x80
+! -25% 0x60
+! -50% 0x40
+!
+! #808080
+!
+! #c08080
+! #c04040         #800000
+!
+! #80c080 #a0c080
+! #40c040 #60c040 #008000
+!
+! #8080c0 #6080c0
+! #4040c0 #4060c0 #000080
+!
+! #c0c080 #a0a080
+! #c0c040 #a0a040
+!
+! #80c0c0 #80a0c0
+! #40c0c0 #40a0c0
+!
+! #c080c0 #a080c0
+! #c040c0 #a040c0
+
+
+*background: #1c1c1c
+*foreground: #d0d0d0
+
+*cursorColor: #ffaf00
+!*cursorColor2: #1c1c1c
+
+*highlightColor: #5f875f
+*highlightTextColor: #eeeeee
+
+!black
+ *color0:  #404040
+ *color8:  #606060
+!red
+ *color1:  #c04040
+ *color9:  #c08080
+!green
+ *color2:  #40c040
+ *color10: #80c080
+!yellow
+ *color3:  #c0c040
+ *color11: #c0c080
+!blue
+ *color4:  #4040c0
+ *color12: #8080c0
+!magenta
+ *color5:  #af7faf
+ *color13: #dfafdf
+!cyan
+ *color6:  #40c0c0
+ *color14: #80c0c0
+!white
+ *color7:  #a0a0a0
+ *color15: #c0c0c0
+

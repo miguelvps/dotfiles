@@ -1,0 +1,10 @@
+[user]
+	email = miguelvps@gmail.com
+	name = Miguel Serrano
+[core]
+	editor = vim
+	autocrlf = input
+[merge]
+	tool = vimdiff
+[color]
+	ui = auto

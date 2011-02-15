@@ -1,0 +1,35 @@
+! --------------------
+! xrdb ~/.Xresources |
+! --------------------
+
+#define FONT Consolas:pixelsize=13
+
+! Xft settings
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
+
+
+! xterm
+xterm*faceName: Xft:FONT
+xterm*bellIsUrgent: true
+
+
+! rxvt-unicode
+urxvt*font: xft:FONT
+urxvt*scrollBar: false
+urxvt*pointerBlank: true
+urxvt*urgentOnBell: true
+! clickable urls
+urxvt*perl-ext-common: default,matcher
+urxvt*urlLauncher: $BROWSER
+urxvt*matcher.button: 1
+
+
+! Colors
+! 0=black, 1=red, 2=green, 3=yellow, 4=blue, 5=magenta, 6=cyan, 7=white
+#include "/home/miguel/.colors/xoria256"
+!#include "/home/miguel/.colors/axoria256"
