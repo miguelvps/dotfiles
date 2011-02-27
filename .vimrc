@@ -77,9 +77,6 @@ set sidescroll=1 " The minimal number of columns to scroll horizontally.
 
 " Color scheme
 colorscheme xoria256 " my color scheme
-"Invisible character colors
-highlight NonText guifg=#4a4a59
-highlight SpecialKey guifg=#4a4a59
 
 " Graphical User Interface
 "set guifont=consolas:h10 " Consolas font
