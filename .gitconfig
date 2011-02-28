@@ -4,6 +4,7 @@
 [core]
 	editor = vim
 	autocrlf = input
+	safecrlf = warn
 [merge]
 	tool = vimdiff
 [color]
