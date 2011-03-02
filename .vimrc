@@ -45,15 +45,19 @@ set number " Print the line number in front of each line.
 set numberwidth=1 " Minimal number of columns to use for the line number.
 set report=0 " Threshold for reporting number of lines changed. (0 means always)
 set showmatch " When a bracket is inserted, briefly jump to the matching one.
-set wildmenu " Enable command-line completion wild menu.
-set wildmode=list:longest " Completion mode to use in wild menu.
-set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " A list of file patterns for wild menu to ignore.
 set showcmd " Show (partial) command in the last line of the screen.
 set ruler " Show the line and column number of the cursor position.
 set laststatus=2 " Always display the status line.
 set statusline=[%n]\ %F\ \ %(%h%w\ \ %)%(%r%m\ \ %)[%{&ff}]\ \ [%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}]\ \ %y\ \ %=lin:%l/%L\ \ %-7(col:%c%V%)\ \ %P
 set nowrap " Disable wrap.
 set noequalalways " When on, all the windows are automatically made the same size after splitting or closing a window.
+
+" Command-line completion
+set wildmenu " Enable command-line completion wild menu.
+set wildmode=list:longest " Completion mode to use in wild menu.
+set wildoptions=tagfile " A list of words that change how command line completion is done.
+set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " A list of file patterns for wild menu to ignore.
+set wildignorecase " When set case is ignored when completing file names and directories.
 
 " Search
 set incsearch " Incremental searching.
