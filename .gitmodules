@@ -42,3 +42,7 @@
 	path = .vim/bundle/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 	ignore = untracked
+[submodule ".vim/bundle/bufkill"]
+	path = .vim/bundle/bufkill
+	url = https://github.com/vim-scripts/bufkill.vim.git
+	ignore = untracked

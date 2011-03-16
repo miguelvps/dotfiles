@@ -180,8 +180,6 @@ nnoremap / :nohl<CR>/
 " indent buffer
 nnoremap <leader>indent gg=G``
 
-nnoremap <leader>ba :bufdo Bclose<CR>
-
 "make Y and V consistent with C and D
 nnoremap Y y$
 nnoremap V v$
