@@ -67,22 +67,6 @@ for s = 2, screen.count() do
 end
 -- }}}
 
-
---transmission = awful.widget.button({ image = image("/home/miguel/.config/awesome/transmission.png") })
---transmission:buttons(awful.util.table.join(
-    --awful.button({ }, 1, function ()
-        ----awful.tag.viewonly(t[5])
-        ----awful.tag.viewidx(t[5])
-        --awful.tag.viewonly(tags[1][5])
-        --awful.util.spawn("chromium --app=http://127.0.0.1:9091")
-    --end)))
---client.add_signal("unfocus", function (c)
-    ----naughty.notify({ text = c.name, timeout=0 })
-    --if c.name == "Transmission Web Interface" then
-        --c:kill()
-    --end
---end)
-
 -- {{{ Menu
 -- Create a laucher widget and a main menu
 myawesomemenu = {
