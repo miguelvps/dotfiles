@@ -20,6 +20,11 @@ function ff() { find . -type f -iname '*'$*'*' -ls ; }
 function fe()
 { find . -type f -iname '*'${1:-}'*' -exec ${2:-file} {} \;  ; }
 
+# Show process $1 stderr if available (must be a 'catable' file)
+function stderr() { tail -f /proc/$(pidof $1)/fd/2 ; }
+complete -F _pgrep stderr
+
+
 function extract()      # Handy Extract Program.
 {
      if [ -f $1 ] ; then
@@ -41,3 +46,37 @@ function extract()      # Handy Extract Program.
          echo "'$1' is not a valid file"
      fi
 }
+
+# Redirect a process fd to target file
+function redirect() {
+    local O_CREAT=00100
+    local O_WRONLY=01
+    local O_APPEND=02000
+    local flags="$O_CREAT|$O_WRONLY|$O_APPEND"
+    local mode=00664
+
+    local tmpfile=`mktemp`
+    echo "p dup2(open("\"$3\"", $flags, $mode), $2)" > $tmpfile
+
+    gdb -batch -x $tmpfile -p $(pidof $1)
+}
+_redirect()
+{
+    local cur
+    COMPREPLY=()
+    cur=${COMP_WORDS[COMP_CWORD]}
+
+    if [[ $COMP_CWORD -eq 1 ]] ; then
+        _pgrep
+        return 0
+    fi
+    if [[ $COMP_CWORD -eq 2 ]] ; then
+        COMPREPLY=( $( compgen -W "1 2 3" -- $cur ) )
+        return 0
+    fi
+    if [[ $COMP_CWORD -eq 3 ]] ; then
+        _filedir
+        return 0
+    fi
+}
+complete -F _redirect redirect
