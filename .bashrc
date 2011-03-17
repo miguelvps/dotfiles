@@ -8,6 +8,7 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 
+alias o='xdg-open'
 
 # Find a file with a pattern in name:
 function ff() { find . -type f -iname '*'$*'*' -ls ; }
