@@ -10,6 +10,9 @@ alias mv='mv -i'
 
 alias o='xdg-open'
 
+# Serve the current directory in port $1
+function http() { python2 -m SimpleHTTPServer "$@" ; }
+
 # Find a file with a pattern in name:
 function ff() { find . -type f -iname '*'$*'*' -ls ; }
 
