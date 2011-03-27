@@ -50,7 +50,11 @@ set ruler " Show the line and column number of the cursor position.
 set laststatus=2 " Always display the status line.
 set statusline=[%n]\ %F\ \ %(%h%w\ \ %)%(%r%m\ \ %)[%{&ff}]\ \ [%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}]\ \ %y\ \ %=lin:%l/%L\ \ %-7(col:%c%V%)\ \ %P
 set nowrap " Disable wrap.
-set noequalalways " When on, all the windows are automatically made the same size after splitting or closing a window.
+
+" Window splitting
+set noequalalways " Splitting a window will reduce the size of the current window and leave the other windows the same.
+set splitright " Splitting a window will put the new window right of the current one.
+set splitbelow " Splitting a window will put the new window below the current one.
 
 " Command-line completion
 set wildmenu " Enable command-line completion wild menu.
