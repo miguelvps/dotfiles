@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Syntax
 #      notify-send [OPTIONS] [body]
 #
@@ -31,4 +33,4 @@
 # TR_TORRENT_NAME
 
 logo="/usr/share/transmission/web/images/graphics/logo.png"
-notify-send --urgency=normal --icon=$logo "Transmission" "\n$TR_TORRENT_NAME finished!\n$TRANSMISSION_WEB_HOME"
+notify-send --urgency=normal --icon=$logo "Transmission" "\n$TR_TORRENT_NAME finished!\n"
