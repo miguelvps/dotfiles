@@ -1,0 +1,18 @@
+# video
+vo=xv
+double=yes
+
+# audio
+ao=alsa
+softvol=yes
+softvol-max=200
+
+# subs
+slang=en,eng,pt,por
+unicode=yes
+utf8=yes
+sub-fuzziness=1
+unrarexec=/usr/bin/unrar
+
+
+nolirc=yes
