@@ -9,3 +9,8 @@ export VISUAL
 
 BROWSER=chromium
 export BROWSER
+
+
+if [[ -z $DISPLAY && $(tty) = /dev/tty1 ]]; then
+    exec xinit
+fi
