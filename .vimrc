@@ -132,26 +132,10 @@ let NERDTreeWinSize=30 " Set the size of the NERD tree when it is loaded.
 let NERDCreateDefaultMappings=0 " If set to 0, none of the default mappings will be created.
 map <silent> <leader>c <plug>NERDCommenterToggle
 
-" TagList Settings
-let Tlist_Auto_Open = 0 " Open the taglist window when Vim starts.
-let Tlist_Compact_Format = 0 " Remove extra information and blank lines from the taglist window.
-" let Tlist_Ctags_Cmd="\"".expand("$VIM\\ctags").".exe\"" " Specifies the path to the ctags utility.
-let Tlist_Display_Prototype = 0 " Show prototypes and not tags in the taglist window.
-let Tlist_Display_Tag_Scope = 1 " Show tag scope next to the tag name.
-let Tlist_Enable_Fold_Column = 0 " Show the fold indicator column in the taglist window.
-let Tlist_Exist_OnlyWindow = 1 " Close Vim if the taglist is the only window.
-let Tlist_File_Fold_Auto_Close = 1 " Close tag folds for inactive buffers.
-let Tlist_Inc_Winwidth = 0 " Don't resize windows
-let Tlist_Show_One_File = 0 "Show tags for the current buffer only.
-let Tlist_Sort_Type = "name" " Sort method used for arranging the tags.
-let Tlist_Use_Right_Window = 1 " Place the taglist window on the right side.
-let Tlist_Use_SingleClick = 1 " Single click on a tag jumps to it.
-let Tlist_Win_Width=30 " Vertically split taglist window width.
-" Language Specifics
-"let tlist_aspjscript_settings = 'asp;f:function;c:class' " just functions and classes please
-"let tlist_aspvbs_settings = 'asp;f:function;s:sub' " just functions and subs please
-"let tlist_php_settings = 'php;c:class;d:constant;f:function' " don't show variables in freaking php
-"let tlist_vb_settings = 'asp;f:function;c:class' " just functions and classes please
+" Tagbar
+let g:tagbar_width = 30 " Width of the Tagbar window in characters.
+let g:tagbar_compact = 1 " Hide short help at the top.
+let g:tagbar_singleclick = 1 " Single click on a tag jumps to it.
 
 
 " When editing a file, always jump to the last known cursor position.
@@ -177,7 +161,7 @@ endif
 
 " MAPS
 map <silent> <F4> :NERDTreeToggle<CR>
-map <silent> <F5> :TlistToggle<CR>
+map <silent> <F5> :TagbarToggle<CR>
 
 nnoremap / :nohl<CR>/
 
