@@ -33,14 +33,14 @@ client.add_signal("unmanage", function (c) if c == transmission_cl then transmis
 local transmission_app_cl = false
 function transmission_app()
     if not transmission_app_cl then
-        awful.util.spawn("chromium --app=http://127.0.0.1:9091")
+        awful.util.spawn("chromium --app=http://127.0.0.1:9090")
     else
         transmission_app_cl:kill()
     end
 end
 
 awful.rules.rules = awful.util.table.join( awful.rules.rules, {
-    { rule = { class = "Chromium", name = "Untitled" },
+    { rule = { class = "127.0.0.1", name = "Untitled" },
         properties = { floating = true },
         callback = function (c) c:add_signal("property::name", function()
                 if c.name == "Transmission Web Interface" then
