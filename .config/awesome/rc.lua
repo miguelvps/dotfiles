@@ -7,8 +7,6 @@ require("beautiful")
 -- Notification library
 require("naughty")
 
-require("revelation")
-
 require("safequit")
 
 require("volume")
@@ -188,7 +186,6 @@ root.buttons(awful.util.table.join(
 globalkeys = awful.util.table.join( root.keys(),
     -- Misc
     awful.key({ modkey,           }, "e",      function () mymainmenu:toggle({keygrabber=true}) end),
-    awful.key({ modkey,           }, "w",      revelation.revelation),
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Control" }, "r",      awesome.restart),
     awful.key({ modkey, "Shift"   }, "q",      safequit.quit),
@@ -429,12 +426,10 @@ staticapp("weechat", "name", tags[1][2])
 staticapp("Gvim", "class", tags[1][3])
 -- }}}
 
---client.add_signal("manage", function (c, startup)
-    --naughty.notify({ text = "manage", timeout = 0 })
-    --naughty.notify({ text = c.name, timeout = 0 })
-    --naughty.notify({ text = c.class, timeout = 0 })
-    --naughty.notify({ text = c.instance, timeout = 0 })
-    --naughty.notify({ text = c.role, timeout = 0 })
---end)
-
-revelation.revelation()
+-- client.add_signal("manage", function (c, startup)
+    -- naughty.notify({ text = "manage", timeout = 0 })
+    -- naughty.notify({ text = c.name, timeout = 0 })
+    -- naughty.notify({ text = c.class, timeout = 0 })
+    -- naughty.notify({ text = c.instance, timeout = 0 })
+    -- naughty.notify({ text = c.role, timeout = 0 })
+-- end)
