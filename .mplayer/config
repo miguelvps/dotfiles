@@ -5,7 +5,7 @@ double=yes
 # audio
 ao=alsa
 softvol=yes
-softvol-max=200
+softvol-max=500
 
 # subs
 slang=en,eng,pt,por
