@@ -424,9 +424,9 @@ function staticapp(name, typ, tag)
 end
 
 staticapp("chromium", "instance", tags[1][1])
-staticapp("irssi", "name", tags[1][2])
-staticapp("Vim", "name", tags[1][3])
-staticapp("urxvt", "name", tags[1][4])
+staticapp("URxvt", "class", tags[1][4])
+staticapp("weechat", "name", tags[1][2])
+staticapp("Gvim", "class", tags[1][3])
 -- }}}
 
 --client.add_signal("manage", function (c, startup)
