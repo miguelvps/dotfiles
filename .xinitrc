@@ -10,7 +10,7 @@ xrdb -merge ~/.Xresources
 xset r rate 300 # set keyboard repeat delay/rate
 
 chromium &
-urxvt -e irssi &
+urxvt -title weechat -e weechat-curses &
 gvim &
 urxvt &
 
