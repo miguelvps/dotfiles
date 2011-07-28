@@ -56,7 +56,7 @@ layouts =
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
 tags = {}
-tags[1] = awful.tag({ "www", "im", "vim", "term", 5, 6, 7, 8, 9 }, 1, awful.layout.suit.tile)
+tags[1] = awful.tag({ "www", "im", "dev", "term", 5, 6, 7, 8, 9 }, 1, awful.layout.suit.tile)
 
 
 for s = 2, screen.count() do
