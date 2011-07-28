@@ -1,3 +1,6 @@
+PATH=$PATH:~/.bin
+export PATH
+
 PAGER=less
 export PAGER
 
