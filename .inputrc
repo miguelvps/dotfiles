@@ -13,8 +13,9 @@ set output-meta On
 set bell-style none
 set completion-ignore-case on
 set editing-mode emacs # vi or emacs
-set print-completions-horizontally on
 set show-all-if-ambiguous on
+set show-all-if-unmodified on
+set completion-prefix-display-length 2
 
 
 "\e[A":history-search-backward
