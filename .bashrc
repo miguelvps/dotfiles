@@ -3,11 +3,11 @@
 
 PS1='[\u@\h \W]\$ '
 
-alias ls='ls --color=auto'
+alias ls='ls --color=auto --literal --human-readable --show-control-chars --group-directories-first'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-
+alias grep='grep --color=auto'
 alias o='xdg-open'
 
 # Serve the current directory in port $1
