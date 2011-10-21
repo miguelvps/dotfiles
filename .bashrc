@@ -3,6 +3,12 @@
 
 PS1='[\u@\h \W]\$ '
 
+shopt -s cdspell
+shopt -s dirspell
+shopt -s globstar
+shopt -s nocaseglob
+shopt -s histappend
+
 alias ls='ls --color=auto --literal --human-readable --show-control-chars --group-directories-first'
 alias rm='rm -i'
 alias cp='cp -i'
