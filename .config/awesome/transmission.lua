@@ -40,7 +40,7 @@ function transmission_app()
 end
 
 awful.rules.rules = awful.util.table.join( awful.rules.rules, {
-    { rule = { class = "127.0.0.1", name = "Untitled" },
+    { rule = { name = "Untitled" },
         properties = { floating = true },
         callback = function (c) c:add_signal("property::name", function()
                 if c.name == "Transmission Web Interface" then
