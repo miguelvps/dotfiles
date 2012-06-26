@@ -12,6 +12,7 @@ set output-meta On
 
 set bell-style none
 set completion-ignore-case on
+set completion-map-case on
 set editing-mode emacs # vi or emacs
 set show-all-if-ambiguous on
 set show-all-if-unmodified on
