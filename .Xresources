@@ -15,7 +15,7 @@ Xft.rgba: rgb
 
 
 ! xterm
-xterm*faceName: Xft:FONT
+xterm*faceName: FONT
 xterm*bellIsUrgent: true
 
 
