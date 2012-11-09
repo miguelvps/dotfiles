@@ -14,4 +14,4 @@ urxvt -title weechat -e weechat-curses &
 gvim &
 urxvt &
 
-exec ck-launch-session awesome
+exec awesome
