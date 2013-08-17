@@ -25,7 +25,11 @@ function ff() { find . -type f -iname '*'$*'*' -ls ; }
 
 # Find a file with pattern $1 in name and Execute $2 on it:
 function fe()
-{ find . -type f -iname '*'${1:-}'*' -exec ${2:-file} {} \;  ; }
+{ find . -type f -iname '*'${1:-}'*' -exec ${2:-file} {} \; ; }
+
+# Find a file with pattern $1 that contains text $2:
+function ft()
+{ find . -type f -iname '*'${1:-}'*' -exec grep -il "$2" {} \; ; }
 
 # Show process $1 stderr if available (must be a 'catable' file)
 function stderr() { tail -f /proc/$(pidof $1)/fd/2 ; }
