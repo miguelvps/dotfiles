@@ -4,6 +4,7 @@
 PS1='[\u@\h \W]\$ '
 
 shopt -s cdspell
+shopt -s checkwinsize
 shopt -s dirspell
 shopt -s globstar
 shopt -s nocaseglob
