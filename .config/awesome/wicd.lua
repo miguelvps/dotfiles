@@ -16,7 +16,7 @@ end
 
 awful.rules.rules = awful.util.table.join( awful.rules.rules, {
     { rule = { name = "wicd-curses" },
-    properties = { floating = true, above = true, sticky = true, skip_taskbar = true, x = 807, y = 19, height = 200, width = 560 },
+    properties = { floating = true, above = true, sticky = true, skip_taskbar = true, x = 747, y = 19, height = 200, width = 620 },
     callback = function (c) wicd_cl = c end
 },
 })
