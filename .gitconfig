@@ -5,6 +5,7 @@
 	editor = vim
 	autocrlf = input
 	safecrlf = warn
+	excludesfile = ~/.gitglobalignore
 [merge]
 	tool = vimdiff
 [color]
