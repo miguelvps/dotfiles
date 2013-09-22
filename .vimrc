@@ -1,5 +1,10 @@
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 call pathogen#helptags()
+
+" matchpairs / matchtime
+"    set undofile            " Enable persistent undo
+"    set undodir=~/.vim/tmp/ " Store undofiles in a tmp dir
+" nojoinspaces
 
 " PT Keyboard layout
 "set langmap+=º'
@@ -11,19 +16,21 @@ set nocompatible " Use Vim settings, rather then Vi settings.
 set nobackup " Do not keep a backup file.
 set nowritebackup " Do not write backup file before saving.
 set updatetime=2000 " Update time for autocommand events (ms).
-"set directory=$VIM/swp// " List of directory names for the swap files.
+" set directory=$VIM/swp// " List of directory names for the swap files.
+set directory=$HOME/.vim/.swp//,. " List of directory names for the swap files.
 "set viminfo+=n$VIM\\_viminfo " Set where the _viminfo file is to be saved.
 "set viminfo+=% " Save and restore the buffer list.
 set history=100 " A history of : commands and previous search patterns.
 "set autochdir " Change to the current file directory.
 set backspace=indent,eol,start " Allow backspacing over everything in insert mode.
-set clipboard+=unnamed " Set clipboard register to the unnamed register.
+set clipboard^=unnamedplus " Set clipboard register to the unnamedplus register.
 set mouse=a " Enable the use of the mouse in every mode.
 filetype plugin indent on " Enable file type detection.
 syntax on " Enable syntax highlighting.
 set omnifunc=syntaxcomplete#Complete " Set the omni completion function.
-set completeopt=menuone,longest " Options for Insert mode completion.
-"set infercase " Infer case when doing keyword completion.
+set completeopt=menuone,longest,preview " Options for Insert mode completion.
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 set hidden " Make buffers become hidden when abandoned.
 set iskeyword+=_,$,%,# " None of these are word dividers.
 set whichwrap=b,s,h,l,<,>,~,[,] " Allow all keys to move the cursor to the previous/next line.
@@ -60,7 +67,7 @@ set splitbelow " Splitting a window will put the new window below the current on
 set wildmenu " Enable command-line completion wild menu.
 set wildmode=list:longest " Completion mode to use in wild menu.
 set wildoptions=tagfile " A list of words that change how command line completion is done.
-set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.jpg,*.gif,*.png " A list of file patterns for wild menu to ignore.
+set wildignore=*.dll,*.o,*.obj,*.bak,*.exe,*.pyc,*.class,*.jpg,*.gif,*.png " A list of file patterns for wild menu to ignore.
 set wildignorecase " When set case is ignored when completing file names and directories.
 
 " Search
