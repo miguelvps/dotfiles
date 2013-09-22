@@ -98,24 +98,12 @@ set mousehide " Hide the mouse cursor when typing
 
 " Plugin Settings
 
-" MiniBufExplorer Settings
-let g:miniBufExplSplitToEdge = 0 " Force window to open up at the edge of the screen.
-let g:miniBufExplMaxSize = 1 " Set Maximum lines height.
-" let g:miniBufExplorerMoreThanOne = 0 " Stop from opening automatically until more than one buffer.
-let g:miniBufExplMapWindowNavVim = 1 " Enable mapping of Control + Direction to window movement commands.
-let g:miniBufExplMapWindowNavArrows = 1 " Enable mapping of Control + Arrows to window movement commands.
-let g:miniBufExplMapCTabSwitchBufs = 1 " Enable <C-TAB> and <C-S-TAB> to iterate through buffers.
-let g:miniBufExplUseSingleClick = 1 " Enable single click on buffers rather than double click.
-let g:miniBufExplModSelTarget = 1 " Force MBE to place buffers into windows that do not have a nonmodifiable buffer.
-
-" Command-T
-let g:CommandTMaxHeight = 20
-nmap <silent> <Leader>t :CommandT<CR>
-nmap <silent> <Leader>r :CommandTFlush<CR>
+" ctrlp
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlPMixed'
 
 " bufexplorer Settings
 let g:bufExplorerDefaultHelp=0 " Do not show default help.
-let g:bufExplorerShowRelativePath = 1 " Show relative paths.
 
 " NERDTree Settings
 let NERDTreeChDirMode=2 " When to change the current working directory
@@ -130,6 +118,7 @@ let NERDTreeWinSize=30 " Set the size of the NERD tree when it is loaded.
 
 " NERDCommenter
 let NERDCreateDefaultMappings=0 " If set to 0, none of the default mappings will be created.
+let NERDSpaceDelims=1 " Add a space after comment delimeter
 map <silent> <leader>c <plug>NERDCommenterToggle
 
 " Tagbar
@@ -148,8 +137,6 @@ autocmd BufReadPost *
             \   exe "normal! g`\"" |
             \ endif
 
-
-
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
@@ -157,7 +144,6 @@ if !exists(":DiffOrig")
     command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
                 \ | wincmd p | diffthis
 endif
-
 
 " MAPS
 map <silent> <F4> :NERDTreeToggle<CR>
@@ -184,10 +170,10 @@ nmap <silent> <C-Tab> :tabn<CR>
 nmap <silent> <C-S-Tab> :tabp<CR>
 
 " change cwd to current buffer directory
-map <leader>cd :cd %:p:h<CR>
+nmap <leader>cd :cd %:p:h<CR>
 
 " start cmd in current working directory
-map <silent> <leader>cmd :!start cmd<CR>
+nmap <silent> <leader>cmd :!start cmd<CR>
 
 " keep visual selection when indent
 vnoremap > >gv
@@ -197,9 +183,17 @@ vnoremap < <gv
 noremap j gj
 noremap k gk
 
-
-" Remove trailing whitespace
-nnoremap <silent> <leader>s :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>``
+" Delete trailing whitespace
+nnoremap <silent> <leader>s :call <SID>DeleteTrailingWhitespace()<CR>
+fun! <SID>DeleteTrailingWhitespace()
+  if ! &bin
+    let l:l = line(".")
+    let l:c = col(".")
+    silent! :%s/[\r \t]\+$//
+    call histdel("search", -1)
+    call cursor(l:l, l:c)
+  endif
+endfun
 
 " save file with linux EOLs and no EOL in the last
 command! W set binary | write | set nobinary
@@ -208,7 +202,6 @@ command! W set binary | write | set nobinary
 " change font size
 nnoremap <silent> <C-kPlus> :let &guifont = substitute(&guifont,'\d\+$','\=submatch(0)+1','')<CR>:set guifont?<CR>
 nnoremap <silent> <C-kMinus> :let &guifont = substitute(&guifont,'\d\+$','\=submatch(0)-1','')<CR>:set guifont?<CR>
-
 
 " Search for selected text, forwards or backwards.
 " http://vim.wikia.com/wiki/Search_for_visually_selected_text
@@ -293,19 +286,10 @@ function! ToggleHex()
     let &modifiable=l:oldmodifiable
 endfunction
 
-
-" Sets up omni-completion for a django project in a virtualenv.
-"
-" Copy this file to YOUR_VIRTUALENV_DIR/.vimrc and add the following to your
-" ~/.vimrc file:
-if filereadable($VIRTUAL_ENV . '/virtualenv.vim')
-    source $VIRTUAL_ENV/virtualenv.vim
-endif
-"
-" Thanks, Daniel!
-" http://blog.roseman.org.uk/2010/04/21/vim-autocomplete-django-and-virtualenv/
-
-
 "if getcwd() == $VIMRUNTIME
 "    cd $HOME " last because of ugly args bug with set encoding
 "endif
+
+autocmd FileType html set sw=2
+autocmd FileType html set ts=2
+autocmd FileType html set sts=2
