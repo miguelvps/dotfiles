@@ -14,9 +14,9 @@ for name in $(ls -1A) ; do
 
   if [ -e "$target" ] && [ ! -h "$target" ] ; then
     echo "* Backing up $target ..."
-    mv --backup=numbered $target $backup
+    mv --backup=numbered --no-target-directory $target $backup
   fi
 
-  ln -sf $source $target
+  ln --force --no-target-directory --symbolic $source $target
   echo "$source -> $target"
 done
