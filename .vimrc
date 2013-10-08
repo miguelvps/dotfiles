@@ -36,7 +36,7 @@ set iskeyword+=_,$,%,# " None of these are word dividers.
 set whichwrap=b,s,h,l,<,>,~,[,] " Allow all keys to move the cursor to the previous/next line.
 set virtualedit=block " Allow virtual editing in Visual block mode.
 set formatoptions+=rol
-set switchbuf=useopen,usetab
+set switchbuf=usetab " Jump to the first open window that contains the specified buffer.
 
 if &termencoding == ""
     let &termencoding = &encoding  " Encoding used for the terminal.
