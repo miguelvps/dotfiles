@@ -1,15 +1,6 @@
 call pathogen#infect()
 call pathogen#helptags()
 
-" matchpairs / matchtime
-"    set undofile            " Enable persistent undo
-"    set undodir=~/.vim/tmp/ " Store undofiles in a tmp dir
-" nojoinspaces
-
-" PT Keyboard layout
-"set langmap+=º'
-"set langmap+=ª~
-"set langmap+=~`
 
 " General options
 set nocompatible " Use Vim settings, rather then Vi settings.
@@ -35,6 +26,7 @@ set whichwrap=b,s,h,l,<,>,~,[,] " Allow all keys to move the cursor to the previ
 set virtualedit=block " Allow virtual editing in Visual block mode.
 set formatoptions+=rol
 set switchbuf=usetab " Jump to the first open window that contains the specified buffer.
+set nojoinspaces " Insert a single space with a join command.
 
 if &termencoding == ""
     let &termencoding = &encoding  " Encoding used for the terminal.
