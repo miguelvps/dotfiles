@@ -15,8 +15,10 @@ call pathogen#helptags()
 set nocompatible " Use Vim settings, rather then Vi settings.
 set nobackup " Do not keep a backup file.
 set nowritebackup " Do not write backup file before saving.
+set directory=~/.vim/.swp//,. " List of directory names for the swap files.
+set undofile " Enable persistent undo.
+set undodir=~/.vim/.undo//,. " List of directory names for undo files.
 set updatetime=2000 " Update time for autocommand events (ms).
-set directory=$HOME/.vim/.swp//,. " List of directory names for the swap files.
 set history=100 " A history of : commands and previous search patterns.
 set backspace=indent,eol,start " Allow backspacing over everything in insert mode.
 set clipboard^=unnamedplus " Set clipboard register to the unnamedplus register.
