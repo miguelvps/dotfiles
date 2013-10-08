@@ -16,12 +16,8 @@ set nocompatible " Use Vim settings, rather then Vi settings.
 set nobackup " Do not keep a backup file.
 set nowritebackup " Do not write backup file before saving.
 set updatetime=2000 " Update time for autocommand events (ms).
-" set directory=$VIM/swp// " List of directory names for the swap files.
 set directory=$HOME/.vim/.swp//,. " List of directory names for the swap files.
-"set viminfo+=n$VIM\\_viminfo " Set where the _viminfo file is to be saved.
-"set viminfo+=% " Save and restore the buffer list.
 set history=100 " A history of : commands and previous search patterns.
-"set autochdir " Change to the current file directory.
 set backspace=indent,eol,start " Allow backspacing over everything in insert mode.
 set clipboard^=unnamedplus " Set clipboard register to the unnamedplus register.
 set mouse=a " Enable the use of the mouse in every mode.
@@ -94,7 +90,6 @@ set sidescroll=1 " The minimal number of columns to scroll horizontally.
 colorscheme xoria256 " my color scheme
 
 " Graphical User Interface
-"set guifont=consolas:h10 " Consolas font
 set guifont=consolas\ 10 " Consolas font
 set guioptions-=m " Remove menu bar
 set guioptions-=T " Remove toolbar
@@ -116,7 +111,6 @@ let g:bufExplorerDefaultHelp=0 " Do not show default help.
 let NERDTreeChDirMode=2 " When to change the current working directory
 let NERDTreeHijackNetrw=0 " Open up a 'secondary' NERD tree instead of a netrw in the target window.
 let NERDTreeIgnore=['\.pyc', '\~$'] " Files that NERD tree should ignore. (regex)
-"let NERDTreeBookmarksFile=expand("$VIM\\NERDTreeBookmarks") " This is where bookmarks are saved.
 let NERDTreeBookmarksFile=expand("$HOME/.vim/NERDTreeBookmarks") " This is where bookmarks are saved.
 let NERDTreeMouseMode=3 " Single click will open any node.
 let NERDTreeShowBookmarks=1 " Display bookmarks table.
@@ -293,9 +287,6 @@ function! ToggleHex()
     let &modifiable=l:oldmodifiable
 endfunction
 
-"if getcwd() == $VIMRUNTIME
-"    cd $HOME " last because of ugly args bug with set encoding
-"endif
 
 autocmd FileType html set sw=2
 autocmd FileType html set ts=2
