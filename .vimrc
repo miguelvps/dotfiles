@@ -13,9 +13,7 @@ set updatetime=2000 " Update time for autocommand events (ms).
 set history=100 " A history of : commands and previous search patterns.
 set backspace=indent,eol,start " Allow backspacing over everything in insert mode.
 set clipboard^=unnamedplus " Set clipboard register to the unnamedplus register.
-set mouse=a " Enable the use of the mouse in every mode.
 filetype plugin indent on " Enable file type detection.
-syntax on " Enable syntax highlighting.
 set omnifunc=syntaxcomplete#Complete " Set the omni completion function.
 set completeopt=menuone,longest,preview " Options for Insert mode completion.
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
@@ -35,6 +33,7 @@ set encoding=utf-8 " Sets the character encoding used inside Vim.
 
 
 " User Interface
+syntax on " Enable syntax highlighting.
 set linespace=0 " Number of pixel lines inserted between characters.
 set list " Display unprintable characters.
 set listchars=tab:▸\ ,trail:¬ " Which and how to display unprintable characters.
@@ -47,6 +46,8 @@ set ruler " Show the line and column number of the cursor position.
 set laststatus=2 " Always display the status line.
 set statusline=[%n]\ %F\ \ %(%h%w\ \ %)%(%r%m\ \ %)[%{&ff}]\ \ [%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}]\ \ %y\ \ %=lin:%l/%L\ \ %-7(col:%c%V%)\ \ %P
 set nowrap " Disable wrap.
+set mouse=a " Enable the use of the mouse in every mode.
+set mousehide " Hide the mouse cursor when typing
 
 " Window splitting
 set noequalalways " Splitting a window will reduce the size of the current window and leave the other windows the same.
@@ -89,7 +90,6 @@ set guioptions-=m " Remove menu bar
 set guioptions-=T " Remove toolbar
 set guioptions-=L " Remove left-hand scrollbar
 set guioptions-=r " Remove right-hand scrollbar
-set mousehide " Hide the mouse cursor when typing
 
 
 " Plugin Settings
