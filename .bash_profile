@@ -4,5 +4,5 @@ export HISTCONTROL
 HISTSIZE=5000
 export HISTSIZE
 
-. $HOME/.profile
-. $HOME/.bashrc
+source $HOME/.profile
+source $HOME/.bashrc
