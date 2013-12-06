@@ -26,8 +26,8 @@ urxvt*pointerBlank: true
 urxvt*urgentOnBell: true
 ! clickable urls
 urxvt*perl-ext-common: default,matcher
-urxvt*urlLauncher: chromium
-urxvt*matcher.button: 1
+urxvt*url-launcher: chromium
+urxvt.matcher.button: 1
 
 
 ! Colors
