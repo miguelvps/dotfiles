@@ -35,6 +35,22 @@ function ft()
 function stderr() { tail -f /proc/$(pidof $1)/fd/2 ; }
 complete -F _pgrep stderr
 
+# Stopwatch and countdown, $1 in seconds
+function stopwatch()
+{
+    if [ -z "$1" ] ; then
+        d=`date +%s` ;
+        while true ; do
+            echo -ne "$(date -u --date @$((`date +%s` - $d)) +%H:%M:%S)\r" ;
+        done
+    else
+        d=$((`date +%s` + $1)) ;
+        while [ "$d" -ne `date +%s` ] ; do
+            echo -ne "$(date -u --date @$(($d - `date +%s` )) +%H:%M:%S)\r" ;
+        done
+    fi
+}
+
 
 function extract()      # Handy Extract Program.
 {
