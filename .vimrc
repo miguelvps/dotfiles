@@ -31,12 +31,11 @@ if &termencoding == ""
 endif
 set encoding=utf-8 " Sets the character encoding used inside Vim.
 
-
 " User Interface
 syntax on " Enable syntax highlighting.
 set linespace=0 " Number of pixel lines inserted between characters.
 set list " Display unprintable characters.
-set listchars=tab:▸\ ,trail:¬ " Which and how to display unprintable characters.
+set listchars=tab:▸\ ,trail:· " Which and how to display unprintable characters.
 set number " Print the line number in front of each line.
 set numberwidth=1 " Minimal number of columns to use for the line number.
 set report=0 " Threshold for reporting number of lines changed. (0 means always)
