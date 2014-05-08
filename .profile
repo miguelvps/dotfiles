@@ -22,6 +22,6 @@ export LESS_TERMCAP_se=$'\E[0m'     # end standout-mode
 export LESS_TERMCAP_us=$'\E[36m'    # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'     # end underline
 
-if [[ -z $DISPLAY && $(tty) = /dev/tty1 ]]; then
-    exec xinit -- vt7
+if [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+    exec xinit
 fi
