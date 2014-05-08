@@ -98,9 +98,6 @@ set guioptions-=r " Remove right-hand scrollbar
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPMixed'
 
-" bufexplorer Settings
-let g:bufExplorerDefaultHelp=0 " Do not show default help.
-
 " NERDTree Settings
 let NERDTreeChDirMode=2 " When to change the current working directory
 let NERDTreeHijackNetrw=0 " Open up a 'secondary' NERD tree instead of a netrw in the target window.
