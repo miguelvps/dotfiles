@@ -278,10 +278,13 @@ function! ToggleHex()
 endfunction
 
 
-autocmd FileType html set sw=2
-autocmd FileType html set ts=2
-autocmd FileType html set sts=2
+autocmd FileType html setlocal sw=2
+autocmd FileType html setlocal ts=2
+autocmd FileType html setlocal sts=2
 
-autocmd FileType javascript set sw=2
-autocmd FileType javascript set ts=2
-autocmd FileType javascript set sts=2
+autocmd FileType javascript setlocal sw=2
+autocmd FileType javascript setlocal ts=2
+autocmd FileType javascript setlocal sts=2
+
+autocmd FileType go setlocal listchars=tab:\ \ ,trail:·
+autocmd FileType go setlocal noexpandtab
