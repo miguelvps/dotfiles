@@ -107,3 +107,12 @@ _redirect()
     fi
 }
 complete -F _redirect redirect
+
+
+function gowork() {
+    GOPATH=$PWD
+    export GOPATH
+
+    PATH=$PATH:$GOPATH/bin
+    export PATH
+}
