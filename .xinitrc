@@ -9,9 +9,10 @@ xrdb -merge ~/.Xresources
 
 xset r rate 300 # set keyboard repeat delay/rate
 
-chromium &
-urxvt -title weechat -e weechat-curses &
-gvim &
-urxvt &
+eval $(gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
+export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK
 
-exec awesome
+nm-applet &
+volumeicon &
+
+exec i3
