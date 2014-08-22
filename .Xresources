@@ -20,14 +20,14 @@ xterm*bellIsUrgent: true
 
 
 ! rxvt-unicode
-urxvt*font: xft:FONT
-urxvt*scrollBar: false
-urxvt*pointerBlank: true
-urxvt*urgentOnBell: true
+URxvt*font: xft:FONT
+URxvt*scrollBar: false
+URxvt*pointerBlank: true
+URxvt*urgentOnBell: true
 ! clickable urls
-urxvt*perl-ext-common: default,matcher
-urxvt*url-launcher: chromium
-urxvt.matcher.button: 1
+URxvt*perl-ext-common: default,matcher
+URxvt*url-launcher: chromium
+URxvt.matcher.button: 1
 
 
 ! Colors
