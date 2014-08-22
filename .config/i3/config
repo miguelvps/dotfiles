@@ -153,7 +153,12 @@ bar {
 
 bindsym $mod+x exec i3lock --color=1c1c1c
 
-exec --no-startup-id i3-msg 'workspace 1: www; exec chromium'
-exec --no-startup-id i3-msg 'workspace 2: im; exec urxvt -title weechat -e weechat-curses'
-exec --no-startup-id i3-msg 'workspace 3: dev; exec gvim'
-exec --no-startup-id i3-msg 'workspace 4: term; exec urxvt'
+exec --no-startup-id i3-msg 'workspace 1: www; append_layout .config/i3/www.json'
+exec --no-startup-id i3-msg 'workspace 2: im; append_layout .config/i3/im.json'
+exec --no-startup-id i3-msg 'workspace 3: dev; append_layout .config/i3/dev.json'
+exec --no-startup-id i3-msg 'workspace 4: term; append_layout .config/i3/term.json'
+
+exec chromium
+exec urxvt -name weechat -title weechat -e weechat-curses
+exec gvim
+exec urxvt
