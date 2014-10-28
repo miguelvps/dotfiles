@@ -10,7 +10,7 @@ xrdb -merge ~/.Xresources
 xset r rate 300 # set keyboard repeat delay/rate
 
 eval $(gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
-export GNOME_KEYRING_CONTROL GNOME_KEYRING_PID GPG_AGENT_INFO SSH_AUTH_SOCK
+export GPG_AGENT_INFO SSH_AUTH_SOCK
 
 nm-applet &
 volumeicon &
