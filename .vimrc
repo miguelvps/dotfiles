@@ -25,6 +25,7 @@ set virtualedit=block " Allow virtual editing in Visual block mode.
 set formatoptions+=rol
 set switchbuf=usetab " Jump to the first open window that contains the specified buffer.
 set nojoinspaces " Insert a single space with a join command.
+set noesckeys " Disable esc function keys in insert mode.
 
 if &termencoding == ""
     let &termencoding = &encoding  " Encoding used for the terminal.
