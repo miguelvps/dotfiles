@@ -1,5 +1,20 @@
-call pathogen#infect()
-call pathogen#helptags()
+call plug#begin()
+Plug 'editorconfig/editorconfig-vim'
+Plug 'fatih/vim-go'
+Plug 'kien/ctrlp.vim'
+Plug 'majutsushi/tagbar'
+Plug 'miguelvps/xoria256.vim'
+Plug 'mxw/vim-jsx'
+Plug 'pangloss/vim-javascript'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/bufkill.vim'
+Plug 'vim-scripts/matchit.zip'
+call plug#end()
 
 
 " General options
