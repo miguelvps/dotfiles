@@ -9,8 +9,6 @@ xrdb -merge ~/.Xresources
 
 export XCURSOR_PATH='' # use default x cursor
 
-xset r rate 300 # set keyboard repeat delay/rate
-
 eval $(gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
 export GPG_AGENT_INFO SSH_AUTH_SOCK
 
