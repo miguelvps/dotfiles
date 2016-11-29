@@ -6,6 +6,8 @@
 	autocrlf = input
 	safecrlf = warn
 	excludesfile = ~/.gitglobalignore
+[pull]
+	ff = only
 [merge]
 	tool = vimdiff
 [color]
