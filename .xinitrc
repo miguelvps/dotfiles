@@ -9,8 +9,7 @@ xrdb -merge ~/.Xresources
 
 export XCURSOR_PATH='' # use default x cursor
 
-eval $(gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
-export GPG_AGENT_INFO SSH_AUTH_SOCK
+eval $(ssh-agent)
 
 nm-applet &
 volumeicon &
