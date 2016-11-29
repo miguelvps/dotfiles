@@ -11,7 +11,4 @@ export XCURSOR_PATH='' # use default x cursor
 
 eval $(ssh-agent)
 
-nm-applet &
-volumeicon &
-
 exec i3
