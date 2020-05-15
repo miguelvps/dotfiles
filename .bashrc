@@ -51,27 +51,45 @@ function stopwatch()
     fi
 }
 
-
-function extract()      # Handy Extract Program.
-{
-     if [ -f $1 ] ; then
-         case $1 in
-             *.tar.bz2)   tar xvjf $1     ;;
-             *.tar.gz)    tar xvzf $1     ;;
-             *.bz2)       bunzip2 $1      ;;
-             *.rar)       unrar x $1      ;;
-             *.gz)        gunzip $1       ;;
-             *.tar)       tar xvf $1      ;;
-             *.tbz2)      tar xvjf $1     ;;
-             *.tgz)       tar xvzf $1     ;;
-             *.zip)       unzip $1        ;;
-             *.Z)         uncompress $1   ;;
-             *.7z)        7z x $1         ;;
-             *)           echo "'$1' cannot be extracted via >extract<" ;;
-         esac
-     else
-         echo "'$1' is not a valid file"
-     fi
+# Extract provided archive
+function extract {
+ if [ -z "$1" ]; then
+    echo "Usage: extract FILENAME"
+    echo "       extract FILENAME..."
+ else
+    for n in "$@"
+    do
+      if [ -f "$n" ] ; then
+          case "${n%,}" in
+            *.cbt|*.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar) 
+                         tar xvf "$n"       ;;
+            *.lzma)      unlzma ./"$n"      ;;
+            *.bz2)       bunzip2 ./"$n"     ;;
+            *.cbr|*.rar) unrar x -ad ./"$n" ;;
+            *.gz)        gunzip ./"$n"      ;;
+            *.cbz|*.epub|*.zip)
+                         unzip ./"$n"       ;;
+            *.z)         uncompress ./"$n"  ;;
+            *.7z|*.apk|*.arj|*.cab|*.cb7|*.chm|*.deb|*.dmg|*.iso|*.lzh|*.msi|*.pkg|*.rpm|*.udf|*.wim|*.xar)
+                         7z x ./"$n"        ;;
+            *.xz)        unxz ./"$n"        ;;
+            *.exe)       cabextract ./"$n"  ;;
+            *.cpio)      cpio -id < ./"$n"  ;;
+            *.cba|*.ace) unace x ./"$n"     ;;
+            *.zpaq)      zpaq x ./"$n"      ;;
+            *.arc)       arc e ./"$n"       ;;
+            *.cso)       ciso 0 ./"$n" ./"$n.iso" && \ extract $n.iso && \rm -f $n ;;
+            *)
+                         echo "extract: '$n': Unknown archive method"
+                         return 1
+                         ;;
+          esac
+      else
+          echo "extract: '$n': No such file"
+          return 1
+      fi
+    done
+  fi
 }
 
 # Redirect a process fd to target file
