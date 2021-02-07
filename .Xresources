@@ -34,3 +34,7 @@ URxvt.matcher.button: 1
 ! 0=black, 1=red, 2=green, 3=yellow, 4=blue, 5=magenta, 6=cyan, 7=white
 #include "/home/miguel/.colors/xoria256"
 !#include "/home/miguel/.colors/axoria256"
+
+
+! Cursor
+Xcursor.size: 32

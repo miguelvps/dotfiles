@@ -7,7 +7,7 @@ fi
 
 xrdb -merge ~/.Xresources
 
-export XCURSOR_PATH='' # use default x cursor
+# export XCURSOR_PATH='' # use default x cursor
 
 eval $(ssh-agent)
 
