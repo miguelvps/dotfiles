@@ -8,5 +8,7 @@
 	ff = only
 [merge]
 	tool = vimdiff
+[rebase]
+	autostash = true
 [color]
 	ui = auto
