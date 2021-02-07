@@ -3,8 +3,6 @@
 	name = Miguel Serrano
 [core]
 	editor = vim
-	autocrlf = input
-	safecrlf = warn
 	excludesfile = ~/.gitglobalignore
 [pull]
 	ff = only
