@@ -9,18 +9,28 @@ call plug#begin()
 Plug 'editorconfig/editorconfig-vim'
 Plug 'fatih/vim-go'
 Plug 'kien/ctrlp.vim'
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' } " Alternative: Vista.vim
 Plug 'miguelvps/xoria256.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'dense-analysis/ale'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/bufkill.vim'
 Plug 'vim-scripts/matchit.zip'
+Plug 'airblade/vim-gitgutter'
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --ts-completer' }
+Plug 'jparise/vim-graphql'
+Plug 'leafgarland/typescript-vim'
+Plug 'chriskempson/base16-vim'
+Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
+Plug 'sheerun/vim-polyglot'
+Plug 'junegunn/fzf.vim'
+Plug 'sotte/presenting.vim'
 call plug#end()
 
 
@@ -37,9 +47,11 @@ set backspace=indent,eol,start " Allow backspacing over everything in insert mod
 set clipboard^=unnamedplus " Set clipboard register to the unnamedplus register.
 filetype plugin indent on " Enable file type detection.
 set omnifunc=syntaxcomplete#Complete " Set the omni completion function.
-set completeopt=menuone,longest,preview " Options for Insert mode completion.
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+set completeopt=menuone,popup,preview,longest " Options for Insert mode completion.
+set previewheight=5
+" autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0 | pclose| endif
+autocmd WinEnter * if &previewwindow | setlocal wrap | endif
 set hidden " Make buffers become hidden when abandoned.
 set iskeyword+=_,$,%,# " None of these are word dividers.
 set whichwrap=b,s,h,l,<,>,~,[,] " Allow all keys to move the cursor to the previous/next line.
@@ -48,6 +60,9 @@ set formatoptions+=rol
 set switchbuf=usetab " Jump to the first open window that contains the specified buffer.
 set nojoinspaces " Insert a single space with a join command.
 set noesckeys " Disable esc function keys in insert mode.
+set nosol
+
+let mapleader="`"
 
 if &termencoding == ""
     let &termencoding = &encoding  " Encoding used for the terminal.
@@ -112,6 +127,7 @@ set guioptions-=m " Remove menu bar
 set guioptions-=T " Remove toolbar
 set guioptions-=L " Remove left-hand scrollbar
 set guioptions-=r " Remove right-hand scrollbar
+set guioptions+=c " Use console dialogs instead of popup dialogs for simple choices
 
 
 " Plugin Settings
@@ -121,6 +137,7 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPMixed'
 
 " NERDTree Settings
+let NERDTreeMinimalUI=1 " Disable display of the 'Bookmarks' label and 'Press ? for help' text
 let NERDTreeChDirMode=2 " When to change the current working directory
 let NERDTreeHijackNetrw=0 " Open up a 'secondary' NERD tree instead of a netrw in the target window.
 let NERDTreeIgnore=['\.pyc', '\~$'] " Files that NERD tree should ignore. (regex)
@@ -129,6 +146,7 @@ let NERDTreeMouseMode=3 " Single click will open any node.
 let NERDTreeShowBookmarks=1 " Display bookmarks table.
 let NERDTreeStatusline=" "
 let NERDTreeWinSize=30 " Set the size of the NERD tree when it is loaded.
+let NERDTreeCaseSensitiveSort=1 " Enable case sensitive sorting
 
 " NERDCommenter
 let NERDCreateDefaultMappings=0 " If set to 0, none of the default mappings will be created.
@@ -139,6 +157,40 @@ map <silent> <leader>c <plug>NERDCommenterToggle
 let g:tagbar_width = 30 " Width of the Tagbar window in characters.
 let g:tagbar_compact = 1 " Hide short help at the top.
 let g:tagbar_singleclick = 1 " Single click on a tag jumps to it.
+
+" YouCompleteMe
+let g:ycm_key_list_select_completion = []
+let g:ycm_key_list_previous_completion = []
+let g:ycm_key_detailed_diagnostics = ''
+nnoremap <silent> <M-g> :YcmCompleter GoToDefinition<CR>
+nnoremap <silent> <M-f> :YcmCompleter GoToReferences<CR>
+nnoremap <silent> <M-d> :YcmCompleter GetDoc<CR>
+nnoremap <silent> <M-t> :YcmCompleter GetType<CR>
+nnoremap <M-r> :YcmCompleter RefactorRename<SPACE>
+
+" Ale
+let g:ale_linters = {
+\    'typescript': ['tslint', 'tsserver'],
+\    'python': ['bandit', 'flake8', 'mypy'],
+\}
+
+let g:ale_fixers = {
+\   'typescript': ['tslint'],
+\   'python': ['isort', 'black'],
+\}
+let g:ale_set_balloons = 0
+let g:ale_fix_on_save = 1
+let g:ale_python_reorder_python_imports_use_global=1
+
+" GitGutter
+let g:gitgutter_set_sign_backgrounds = 1
+
+" pydocstring
+let g:pydocstring_formatter = 'google'
+nmap <silent> <M-l> <Plug>(pydocstring)
+
+" vim-markdown
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 
 
 " When editing a file, always jump to the last known cursor position.
@@ -174,10 +226,14 @@ nnoremap V v$
 nnoremap vv V
 
 " windows
-nmap <C-h> <C-w>h
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-A-H> <C-w>H
+nnoremap <C-A-J> <C-w>J
+nnoremap <C-A-K> <C-w>K
+nnoremap <C-A-L> <C-w>L
 
 " tabs
 nmap <silent> <C-Tab> :tabn<CR>
@@ -214,8 +270,8 @@ command! W set binary | write | set nobinary
 
 
 " change font size
-nnoremap <silent> <C-kPlus> :let &guifont = substitute(&guifont,'\d\+$','\=submatch(0)+1','')<CR>:set guifont?<CR>
-nnoremap <silent> <C-kMinus> :let &guifont = substitute(&guifont,'\d\+$','\=submatch(0)-1','')<CR>:set guifont?<CR>
+nnoremap <silent> <C-Up> :let &guifont = substitute(&guifont,'\d\+$','\=submatch(0)+1','')<CR>:set guifont?<CR>
+nnoremap <silent> <C-Down> :let &guifont = substitute(&guifont,'\d\+$','\=submatch(0)-1','')<CR>:set guifont?<CR>
 
 " Search for selected text, forwards or backwards.
 " http://vim.wikia.com/wiki/Search_for_visually_selected_text
