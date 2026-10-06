@@ -9,6 +9,7 @@ call plug#begin()
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'fatih/vim-go'
+Plug 'github/copilot.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' } " Alternative: Vista.vim
 Plug 'miguelvps/xoria256.vim'
