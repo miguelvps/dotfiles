@@ -79,6 +79,7 @@ set laststatus=2 " Always display the status line.
 set statusline=[%n]\ %F\ \ %(%h%w\ \ %)%(%r%m\ \ %)[%{&ff}]\ \ [%{(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\")}]\ \ %y\ \ %=lin:%l/%L\ \ %-7(col:%c%V%)\ \ %P
 set nowrap " Disable wrap.
 set mouse=a " Enable the use of the mouse in every mode.
+set ttymouse=sgr " Enable proper mouse support for alacritty
 set mousehide " Hide the mouse cursor when typing
 
 " Window splitting
