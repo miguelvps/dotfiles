@@ -214,10 +214,10 @@ nnoremap V v$
 nnoremap vv V
 
 " windows
-nmap <C-h> <C-w>h
-nmap <C-j> <C-w>j
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " tabs
 nmap <silent> <C-Tab> :tabn<CR>
