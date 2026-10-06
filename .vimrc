@@ -15,7 +15,7 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'pangloss/vim-javascript'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
+Plug 'dense-analysis/ale'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -139,6 +139,20 @@ map <silent> <leader>c <plug>NERDCommenterToggle
 let g:tagbar_width = 30 " Width of the Tagbar window in characters.
 let g:tagbar_compact = 1 " Hide short help at the top.
 let g:tagbar_singleclick = 1 " Single click on a tag jumps to it.
+
+" Ale
+let g:ale_linters = {
+\    'typescript': ['tslint', 'tsserver'],
+\    'python': ['ruff', 'mypy'],
+\}
+
+let g:ale_fixers = {
+\    'typescript': ['tslint'],
+\    'python': ['ruff', 'ruff_format'],
+\}
+let g:ale_virtualtext_cursor = 'disabled'
+let g:ale_set_balloons = 0
+let g:ale_fix_on_save = 1
 
 
 " When editing a file, always jump to the last known cursor position.
