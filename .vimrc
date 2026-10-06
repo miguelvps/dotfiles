@@ -6,6 +6,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin()
+Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'fatih/vim-go'
 Plug 'kien/ctrlp.vim'
@@ -153,6 +154,9 @@ let g:ale_fixers = {
 let g:ale_virtualtext_cursor = 'disabled'
 let g:ale_set_balloons = 0
 let g:ale_fix_on_save = 1
+
+" GitGutter
+let g:gitgutter_set_sign_backgrounds = 1
 
 
 " When editing a file, always jump to the last known cursor position.
