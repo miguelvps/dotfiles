@@ -4,10 +4,10 @@ export PATH
 PAGER=less
 export PAGER
 
-EDITOR=vim
+EDITOR=nvim
 export EDITOR
 
-VISUAL=gvim
+VISUAL=nvim
 export VISUAL
 
 BROWSER=chromium
