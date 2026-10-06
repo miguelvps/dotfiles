@@ -1,0 +1,51 @@
+[colors.cursor]
+cursor = "#ffc000"
+
+[[hints.enabled]]
+command = "open"
+hyperlinks = true
+post_processing = true
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
+
+# [hints.enabled.binding]
+# key = "O"
+# mods = "Control"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "None"
+
+[mouse]
+hide_when_typing = true
+
+[scrolling]
+history = 100000
+
+[window]
+decorations = "None"
+
+
+[font]
+normal = { family = "Menlo Nerd Font Propo", style = "Regular" }
+bold = { family = "Menlo Nerd Font Propo", style = "Bold" }
+italic = { family = "Menlo Nerd Font Propo", style = "Italic" }
+bold_italic = { family = "Menlo Nerd Font Propo", style = "Bold Italic" }
+
+[keyboard]
+# Define keyboard bindings here
+# Example placeholder (actual bindings need to be defined based on user preference)
+bindings = [
+    # { key = "Key", mods = "Modifiers", action = "Action" },
+    # { key = "Key", mods = "Modifiers", chars = "Characters to send" },
+    # ...
+    # { key = "`", action = "ToggleFullscreen" },
+    # Spawn new instance
+    # { key = "N", mods = "Control|Shift", action = "SpawnNewInstance" },
+    # Create new window
+    # { key = "N", mods = "Control", action = "CreateNewWindow" },
+    { key = "Y", mods = "Option", command = { program = "/bin/sh", args = ["-c", "/Applications/Alacritty.app/Contents/MacOS/alacritty --working-directory=$(pwd)"] } },
+    # { key = "G", mods = "Option", command = { program = "/bin/sh", args = ["-c", "/Applications/Alacritty.app/Contents/MacOS/alacritty --working-directory=$(pwd) -e nvim"] } }
+    # { key = "G", mods = "Option", command = { program = "open", args = ["-n", "-g", "-a", "Alacritty", "--args", "--working-directory $(pwd) -e nvim"] } }
+    # { key = "G", mods = "Option", command = { program = "open", args = ["-n", "-g", "-a", "Alacritty", "--args", "--working-directory=$(pwd)"] } }
+    { key = "Return", mods = "Shift", chars = "\n" },
+]
