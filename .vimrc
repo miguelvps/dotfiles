@@ -57,6 +57,8 @@ set nojoinspaces " Insert a single space with a join command.
 set noesckeys " Disable esc function keys in insert mode.
 set nostartofline " Keep the cursor column when jumping lines (gg, G, CTRL-D, ...).
 
+let mapleader="`"
+
 if &termencoding == ""
     let &termencoding = &encoding  " Encoding used for the terminal.
 endif
