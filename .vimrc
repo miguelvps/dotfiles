@@ -43,9 +43,10 @@ set backspace=indent,eol,start " Allow backspacing over everything in insert mod
 set clipboard^=unnamedplus " Set clipboard register to the unnamedplus register.
 filetype plugin indent on " Enable file type detection.
 set omnifunc=syntaxcomplete#Complete " Set the omni completion function.
-set completeopt=menuone,longest,preview " Options for Insert mode completion.
-autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+set completeopt=menuone,popup,preview,longest " Options for Insert mode completion.
+set previewheight=5 " Default height for a preview window.
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+autocmd WinEnter * if &previewwindow | setlocal wrap | endif
 set hidden " Make buffers become hidden when abandoned.
 set iskeyword+=_,$,%,# " None of these are word dividers.
 set whichwrap=b,s,h,l,<,>,~,[,] " Allow all keys to move the cursor to the previous/next line.
