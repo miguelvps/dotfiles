@@ -20,6 +20,7 @@ Plug 'dense-analysis/ale'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/bufkill.vim'
 Plug 'vim-scripts/matchit.zip'
 call plug#end()
