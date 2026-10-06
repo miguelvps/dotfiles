@@ -1,4 +1,4 @@
-PATH=~/.bin:$PATH:~/.npm/bin
+PATH=$PATH:~/.npm/bin
 export PATH
 
 PAGER=less
