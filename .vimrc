@@ -128,6 +128,7 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPMixed'
 
 " NERDTree Settings
+let NERDTreeMinimalUI=1 " Disable display of the 'Bookmarks' label and 'Press ? for help' text
 let NERDTreeChDirMode=2 " When to change the current working directory
 let NERDTreeHijackNetrw=0 " Open up a 'secondary' NERD tree instead of a netrw in the target window.
 let NERDTreeIgnore=['\.pyc', '\~$'] " Files that NERD tree should ignore. (regex)
@@ -136,6 +137,7 @@ let NERDTreeMouseMode=3 " Single click will open any node.
 let NERDTreeShowBookmarks=1 " Display bookmarks table.
 let NERDTreeStatusline=" "
 let NERDTreeWinSize=30 " Set the size of the NERD tree when it is loaded.
+let NERDTreeCaseSensitiveSort=1 " Enable case sensitive sorting
 
 " NERDCommenter
 let NERDCreateDefaultMappings=0 " If set to 0, none of the default mappings will be created.
