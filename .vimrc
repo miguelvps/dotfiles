@@ -26,6 +26,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/bufkill.vim'
 Plug 'vim-scripts/matchit.zip'
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --ts-completer' }
 call plug#end()
 
 
@@ -144,6 +145,16 @@ map <silent> <leader>c <plug>NERDCommenterToggle
 let g:tagbar_width = 30 " Width of the Tagbar window in characters.
 let g:tagbar_compact = 1 " Hide short help at the top.
 let g:tagbar_singleclick = 1 " Single click on a tag jumps to it.
+
+" YouCompleteMe
+let g:ycm_key_list_select_completion = []
+let g:ycm_key_list_previous_completion = []
+let g:ycm_key_detailed_diagnostics = ''
+nnoremap <silent> <M-g> :YcmCompleter GoToDefinition<CR>
+nnoremap <silent> <M-f> :YcmCompleter GoToReferences<CR>
+nnoremap <silent> <M-d> :YcmCompleter GetDoc<CR>
+nnoremap <silent> <M-t> :YcmCompleter GetType<CR>
+nnoremap <M-r> :YcmCompleter RefactorRename<SPACE>
 
 " Ale
 let g:ale_linters = {
