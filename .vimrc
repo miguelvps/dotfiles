@@ -10,6 +10,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'fatih/vim-go'
 Plug 'github/copilot.vim'
+Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
 Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' } " Alternative: Vista.vim
 Plug 'miguelvps/xoria256.vim'
@@ -160,6 +161,10 @@ let g:ale_fix_on_save = 1
 
 " GitGutter
 let g:gitgutter_set_sign_backgrounds = 1
+
+" pydocstring
+let g:pydocstring_formatter = 'google'
+nmap <silent> <M-l> <Plug>(pydocstring)
 
 
 " When editing a file, always jump to the last known cursor position.
