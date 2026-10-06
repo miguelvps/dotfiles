@@ -13,6 +13,8 @@ export VISUAL
 # BROWSER=chromium
 # export BROWSER
 
+export PYTHONDONTWRITEBYTECODE="true"
+
 # Less colors for man pages
 export LESS_TERMCAP_mb=$'\E[5;37m'  # begin blinking
 export LESS_TERMCAP_md=$'\E[1;37m'  # begin bold
