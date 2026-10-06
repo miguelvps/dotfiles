@@ -123,6 +123,7 @@ set guioptions-=m " Remove menu bar
 set guioptions-=T " Remove toolbar
 set guioptions-=L " Remove left-hand scrollbar
 set guioptions-=r " Remove right-hand scrollbar
+set guioptions+=c " Use console dialogs instead of popup dialogs for simple choices
 
 
 " Plugin Settings
