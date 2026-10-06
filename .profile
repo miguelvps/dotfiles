@@ -15,7 +15,7 @@ export VISUAL
 
 export PYTHONDONTWRITEBYTECODE="true"
 
-# Less colors for man pages
+# Colored man pages
 export LESS_TERMCAP_mb=$'\E[5;37m'  # begin blinking
 export LESS_TERMCAP_md=$'\E[1;37m'  # begin bold
 export LESS_TERMCAP_me=$'\E[0m'     # end mode
