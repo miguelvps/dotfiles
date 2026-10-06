@@ -10,8 +10,8 @@ export EDITOR
 VISUAL=nvim
 export VISUAL
 
-BROWSER=chromium
-export BROWSER
+# BROWSER=chromium
+# export BROWSER
 
 # Less colors for man pages
 export LESS_TERMCAP_mb=$'\E[5;37m'  # begin blinking
@@ -22,6 +22,6 @@ export LESS_TERMCAP_se=$'\E[0m'     # end standout-mode
 export LESS_TERMCAP_us=$'\E[36m'    # begin underline
 export LESS_TERMCAP_ue=$'\E[0m'     # end underline
 
-if [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-    exec xinit
-fi
+# if [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+#     exec xinit
+# fi
