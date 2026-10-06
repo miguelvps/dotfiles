@@ -55,6 +55,7 @@ set formatoptions+=rol
 set switchbuf=usetab " Jump to the first open window that contains the specified buffer.
 set nojoinspaces " Insert a single space with a join command.
 set noesckeys " Disable esc function keys in insert mode.
+set nostartofline " Keep the cursor column when jumping lines (gg, G, CTRL-D, ...).
 
 if &termencoding == ""
     let &termencoding = &encoding  " Encoding used for the terminal.
