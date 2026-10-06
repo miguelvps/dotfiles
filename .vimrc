@@ -40,7 +40,7 @@ set undodir=~/.vim/.undo//,. " List of directory names for undo files.
 set updatetime=2000 " Update time for autocommand events (ms).
 set history=100 " A history of : commands and previous search patterns.
 set backspace=indent,eol,start " Allow backspacing over everything in insert mode.
-set clipboard^=unnamedplus " Set clipboard register to the unnamedplus register.
+set clipboard^=unnamed,unnamedplus " Use the system clipboard (* on macOS, + on X11) for the unnamed register.
 filetype plugin indent on " Enable file type detection.
 set omnifunc=syntaxcomplete#Complete " Set the omni completion function.
 set completeopt=menuone,popup,preview,longest " Options for Insert mode completion.
@@ -117,7 +117,7 @@ set sidescroll=1 " The minimal number of columns to scroll horizontally.
 colorscheme xoria256 " my color scheme
 
 " Graphical User Interface
-set guifont=consolas\ 10 " Consolas font
+set guifont=menlo:h11 " Menlo font
 set guioptions-=m " Remove menu bar
 set guioptions-=T " Remove toolbar
 set guioptions-=L " Remove left-hand scrollbar
@@ -261,8 +261,8 @@ command! W set binary | write | set nobinary
 
 
 " change font size
-nnoremap <silent> <C-kPlus> :let &guifont = substitute(&guifont,'\d\+$','\=submatch(0)+1','')<CR>:set guifont?<CR>
-nnoremap <silent> <C-kMinus> :let &guifont = substitute(&guifont,'\d\+$','\=submatch(0)-1','')<CR>:set guifont?<CR>
+nnoremap <silent> <C-Up> :let &guifont = substitute(&guifont,'\d\+$','\=submatch(0)+1','')<CR>:set guifont?<CR>
+nnoremap <silent> <C-Down> :let &guifont = substitute(&guifont,'\d\+$','\=submatch(0)-1','')<CR>:set guifont?<CR>
 
 " Search for selected text, forwards or backwards.
 " http://vim.wikia.com/wiki/Search_for_visually_selected_text
